@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <style name="Theme.PrfofessionalPortfolioApplication" parent="android:Theme.Material.Light.NoActionBar" />
+    // we will create the theme for out splash screen
+    <style name="Theme.MySplashScreen" parent="Theme.SplashScreen">
+      <item name="windowSplashScreenBackground">@color/white</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/appicontwo</item>
+        <item name="postSplashScreenTheme">@style/Theme.PrfofessionalPortfolioApplication</item>
+    </style>
+
+    // this is the theme for our main activity
+    <style name="Theme.PrfofessionalPortfolioApplication" parent="android:Theme.Material.NoActionBar" />
 </resources>
