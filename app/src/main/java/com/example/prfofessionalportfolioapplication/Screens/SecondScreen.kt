@@ -94,16 +94,11 @@ fun SecondScreen(
             horizontalArrangement = Arrangement.SpaceEvenly,
             verticalAlignment = Alignment.CenterVertically
         ) {
-            AnimatedVisibility(
-                visible = initialState,
-                enter = slideInHorizontally(
-                    animationSpec = tween(durationMillis = 1300)
-                )
-            ) {
+
                 ElevatedCard(
                     modifier = Modifier
                         .size(180.dp)
-                        .scale(scale = scale),
+                    ,
                     onClick = { navController.navigate("AboutMePage") }) {
                     Box(
                         modifier = Modifier
@@ -120,17 +115,12 @@ fun SecondScreen(
                         )
                     }
                 }
-            }
-            AnimatedVisibility(
-                visible = initialState,
-                enter = slideInHorizontally(
-                    animationSpec = tween(durationMillis = 1300)
-                )
-            ) {
+
+
                 ElevatedCard(
                     modifier = Modifier
                         .size(180.dp)
-                        .scale(scale = scale),
+                        ,
                     onClick = { navController.navigate("Resume") }) {
                     Box(
                         modifier = Modifier
@@ -147,7 +137,7 @@ fun SecondScreen(
                         )
                     }
                 }
-            }
+
 
 
         }
@@ -159,16 +149,11 @@ fun SecondScreen(
             verticalAlignment = Alignment.CenterVertically
         ) {
 
-            AnimatedVisibility(
-                visible = intialStatetwo,
-                enter = slideInHorizontally(
-                    animationSpec = tween(durationMillis = 1300)
-                )
-            ) {
+
                 ElevatedCard(
                     modifier = Modifier
                         .size(180.dp)
-                        .scale(scale = scale),
+                    ,
                     onClick = { navController.navigate("Project") }) {
                     Box(
                         modifier = Modifier
@@ -186,17 +171,11 @@ fun SecondScreen(
                     }
                 }
 
-            }
-            AnimatedVisibility(
-                visible = intialStatetwo,
-                enter = slideInHorizontally(
-                    animationSpec = tween(durationMillis = 1300)
-                )
-            ) {
+
+
                 ElevatedCard(
                     modifier = Modifier
-                        .size(180.dp)
-                        .scale(scale = scale),
+                        .size(180.dp),
                     onClick = { navController.navigate("Contact") }) {
                     Box(
                         modifier = Modifier
@@ -213,7 +192,7 @@ fun SecondScreen(
                         )
                     }
                 }
-            }
+
 
         }
 
