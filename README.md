@@ -6,6 +6,7 @@
 <p>4. Compose Navigation: To Navigate between screens seamlessly.</p>
 <p>5. Lottie animation : For animated pictures</p>
 <p>6. jetpack animations</p>
+<p>Kotlin</p>
 
 
 <h1>Link to the demo of the application :</h1>https://drive.google.com/file/d/18wFIbiVrw1MqmiBEh2QwbwFTM7Q4IYSv/view?usp=sharing
