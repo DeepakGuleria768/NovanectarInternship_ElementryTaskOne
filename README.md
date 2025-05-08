@@ -1,4 +1,5 @@
-🏗️ Tech Stack 🏗️
+<h1>🏗️ Tech Stack 🏗️</h1>
+</br>
 Jetpack Compose: To build the User Interface
 Material 3: To Design a beautiful and consistent UI.
 Splash Screen: To create a captivating splash screen for our app.
