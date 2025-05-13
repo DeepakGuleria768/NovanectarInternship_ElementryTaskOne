@@ -31,3 +31,6 @@ val SoftGray = Color(0xFFBDBDBD)
 val hashBlack = Color(0xFF383B39)
 val darkBlack = Color(0xFF121212)
 val buttonColor = Color(0xFF4e4e4e)
+
+val iconColor = Color(0xFF2596be)
+val jobCardColor = Color(0xFFf9f9f9)

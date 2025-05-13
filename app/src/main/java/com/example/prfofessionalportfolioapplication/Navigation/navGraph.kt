@@ -7,34 +7,50 @@ import androidx.navigation.compose.rememberNavController
 import com.example.prfofessionalportfolioapplication.Screens.AboutMePage
 import com.example.prfofessionalportfolioapplication.Screens.ContactPage
 import com.example.prfofessionalportfolioapplication.Screens.HomeScreen
+import com.example.prfofessionalportfolioapplication.Screens.JobFormFillingScreen
 import com.example.prfofessionalportfolioapplication.Screens.ProjectPage
 import com.example.prfofessionalportfolioapplication.Screens.ResumePage
 import com.example.prfofessionalportfolioapplication.Screens.SecondScreen
+import com.example.prfofessionalportfolioapplication.Screens.jobsScreens.MainJobScreen
+import com.example.prfofessionalportfolioapplication.Screens.jobsScreens.NonTechnicalJobScreen
+import com.example.prfofessionalportfolioapplication.Screens.jobsScreens.TechnicalJobsScreen
 
 @Composable
-fun MyappNavGraph(){
+fun MyappNavGraph() {
 
     val navController = rememberNavController()
 
-    NavHost(startDestination = "homeScreen" ,navController = navController){
+    NavHost(startDestination = "homeScreen", navController = navController) {
 
-        composable("homeScreen"){
+        composable("homeScreen") {
             HomeScreen(navController = navController)
         }
-        composable("secondScreen"){
+        composable("secondScreen") {
             SecondScreen(navController = navController)
         }
-        composable("AboutMePage"){
+        composable("AboutMePage") {
             AboutMePage(navController = navController)
         }
-        composable("Contact"){
+        composable("Contact") {
             ContactPage(navController = navController)
         }
-        composable("Project"){
+        composable("Project") {
             ProjectPage(navController = navController)
         }
-        composable("Resume"){
+        composable("Resume") {
             ResumePage(navController = navController)
+        }
+        composable("Technical") {
+            TechnicalJobsScreen(navController = navController)
+        }
+        composable("Nontechnical") {
+            NonTechnicalJobScreen(navController = navController)
+        }
+        composable("Main_job_screen") {
+            MainJobScreen(navController = navController)
+        }
+        composable("from_filling") {
+            JobFormFillingScreen(navController = navController)
         }
 
     }

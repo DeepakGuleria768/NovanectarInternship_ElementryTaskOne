@@ -19,6 +19,8 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -45,6 +47,7 @@ import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.example.prfofessionalportfolioapplication.LottieAnimationPage
 import com.example.prfofessionalportfolioapplication.ui.theme.SoftWhite
+import com.example.prfofessionalportfolioapplication.ui.theme.iconColor
 
 @Composable
 fun SecondScreen(
@@ -54,45 +57,34 @@ fun SecondScreen(
 
     var initialState by remember { mutableStateOf(false) }
     var intialStatetwo by remember { mutableStateOf(false) }
+    val scrollstate = rememberScrollState()
 
     LaunchedEffect(Unit) {
         initialState = true
         intialStatetwo = true
     }
 
-    val infiniteTransition = rememberInfiniteTransition(label = "Collapse transition")
-    val scale by infiniteTransition.animateFloat(
-        initialValue = 0.9f,
-        targetValue = 1f,
-        animationSpec = infiniteRepeatable(
-            animation = tween(durationMillis = 800, easing = FastOutSlowInEasing),
-            repeatMode = RepeatMode.Reverse
-        ),
-        label = "label"
-
-    )
-
-
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(color = SoftWhite),
+            .background(color = SoftWhite)
+            .verticalScroll(scrollstate),
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         // here we add the gradient in the card
         val gradient = Brush.linearGradient(
-            colors = listOf(Color(0xFF43C6AC), Color(0xFF191654)),
+            colors = listOf(iconColor,Color.White,Color.Blue),
             start = Offset(0f, 0f),
             end = Offset(1000f, 1000f)
         )
 
-        Spacer(Modifier.height(100.dp))
+        Spacer(Modifier.height(50.dp))
+
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(200.dp),
+                .height(150.dp),
             horizontalArrangement = Arrangement.SpaceEvenly,
-            verticalAlignment = Alignment.CenterVertically
         ) {
 
                 ElevatedCard(
@@ -109,7 +101,7 @@ fun SecondScreen(
                         Text(
                             "About Me",
                             fontFamily = MaterialTheme.typography.headlineLarge.fontFamily,
-                            fontSize = 30.sp,
+                            fontSize = 25.sp,
                             fontWeight = FontWeight.Bold,
                             color = Color.Black
                         )
@@ -131,7 +123,7 @@ fun SecondScreen(
                         Text(
                             "Resume",
                             fontFamily = MaterialTheme.typography.headlineLarge.fontFamily,
-                            fontSize = 30.sp,
+                            fontSize = 25.sp,
                             fontWeight = FontWeight.Bold,
                             color = Color.Black
                         )
@@ -141,12 +133,13 @@ fun SecondScreen(
 
 
         }
+        Spacer(Modifier.height(10.dp))
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(200.dp),
+                .height(150.dp),
             horizontalArrangement = Arrangement.SpaceEvenly,
-            verticalAlignment = Alignment.CenterVertically
+
         ) {
 
 
@@ -164,7 +157,7 @@ fun SecondScreen(
                         Text(
                             "Project",
                             fontFamily = MaterialTheme.typography.headlineLarge.fontFamily,
-                            fontSize = 30.sp,
+                            fontSize = 25.sp,
                             fontWeight = FontWeight.Bold,
                             color = Color.Black
                         )
@@ -186,7 +179,7 @@ fun SecondScreen(
                         Text(
                             "Contact",
                             fontFamily = MaterialTheme.typography.headlineLarge.fontFamily,
-                            fontSize = 30.sp,
+                            fontSize = 25.sp,
                             fontWeight = FontWeight.Bold,
                             color = Color.Black
                         )
@@ -194,6 +187,54 @@ fun SecondScreen(
                 }
 
 
+        }
+           Spacer(Modifier.height(10.dp))
+        Row (
+            modifier = Modifier.fillMaxWidth().height(150.dp),
+            horizontalArrangement = Arrangement.SpaceEvenly
+        ){
+
+            ElevatedCard(
+                modifier = Modifier
+                    .size(180.dp)
+                ,
+                onClick = { navController.navigate("Main_job_screen") }) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(brush = gradient),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text(
+                        "Vacancy",
+                        fontFamily = MaterialTheme.typography.headlineLarge.fontFamily,
+                        fontSize = 25.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = Color.Black
+                    )
+                }
+            }
+
+            ElevatedCard(
+                modifier = Modifier
+                    .size(180.dp)
+                ,
+                onClick = { navController.navigate("") }) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(brush = gradient),
+                    contentAlignment = Alignment.Center
+                ) {
+                    Text(
+                        "UploadResume",
+                        fontFamily = MaterialTheme.typography.headlineLarge.fontFamily,
+                        fontSize = 20.sp,
+                        fontWeight = FontWeight.Bold,
+                        color = Color.Black
+                    )
+                }
+            }
         }
 
         // here i add the lottie animation
