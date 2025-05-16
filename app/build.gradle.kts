@@ -1,5 +1,7 @@
 plugins {
     alias(libs.plugins.android.application)
+    // Add the Google services Gradle plugin
+    id("com.google.gms.google-services")
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
 }
@@ -62,4 +64,20 @@ dependencies {
     debugImplementation(libs.androidx.ui.test.manifest)
     // coil library
     implementation("io.coil-kt.coil3:coil-compose:3.1.0")
+
+
+    // Import the Firebase BoM
+    implementation(platform("com.google.firebase:firebase-bom:33.13.0"))
+
+    // When using the BoM, don't specify versions in Firebase dependencies
+    implementation("com.google.firebase:firebase-analytics")
+
+// add supabase in my project
+    implementation("io.github.jan-tennert.supabase:postgrest-kt:1.3.1")
+    implementation("io.github.jan-tennert.supabase:storage-kt:1.3.1")
+
+    // Ktor HTTP client engine for Android (OkHttp)
+    implementation("io.ktor:ktor-client-okhttp:2.3.0")
+
+
 }

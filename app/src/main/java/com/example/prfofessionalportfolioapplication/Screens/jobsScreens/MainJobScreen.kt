@@ -109,9 +109,3 @@ fun MainJobScreen(
 
 }
 
-@Preview
-@Composable
-fun MainJobScreenPreview() {
-    val navController = rememberNavController()
-    MainJobScreen(navController = navController)
-}

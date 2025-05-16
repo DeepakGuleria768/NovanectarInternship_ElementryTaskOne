@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "34670153607",
+    "project_id": "jobportfolio-83b35",
+    "storage_bucket": "jobportfolio-83b35.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:34670153607:android:88d8920d432c45e3d78d22",
+        "android_client_info": {
+          "package_name": "com.example.prfofessionalportfolioapplication"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC5j7cvzAde8KRexUA9Cr-KTBS2srKw_vs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

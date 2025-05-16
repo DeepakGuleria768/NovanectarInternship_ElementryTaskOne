@@ -1,0 +1,130 @@
+Supabase Storage for Beginners: Super Simple Guide
+I'll walk you through every single step with simple explanations:
+STEP 1: Create Your Supabase Account
+
+Go to supabase.com
+Click "Sign Up"
+Enter your email and password
+Check your email and confirm your account
+
+STEP 2: Make a New Project
+
+Click the big "New Project" button
+Give your project a name (like "My App")
+Make up a database password (write it down!)
+Pick the region closest to you (like "West US" if you're in America)
+Click "Create New Project"
+Wait about 2-3 minutes while Supabase sets everything up
+
+STEP 3: Create a Storage Bucket
+This is like making a folder where your files will be stored:
+
+Look on the left side menu, find and click "Storage"
+Find and click the "Create new bucket" button (or "New Bucket")
+Type a name for your bucket (like "jobportalappstorage") - remember this name!
+For "Bucket visibility" choose:
+
+"Public" if you want anyone to see the files
+"Private" if only logged-in users should see files
+
+
+Click the "Create" button
+You'll see your new bucket appear in the list
+
+STEP 4: Set Up Permissions
+This tells Supabase who can upload files:
+
+Click on your bucket name you just created
+At the top of the page, find and click "Policies"
+Look for and click the "New Policy" button
+Click on the "Templates" tab at the top
+Find and click "Give anon users access to a specific bucket"
+
+"Anon users" means people who aren't logged in
+
+
+When it asks for the bucket name, type the EXACT same name you used before (like "jobportalappstorage")
+Click "Use template"
+Review the settings (no need to change anything)
+Click "Save Policy"
+
+STEP 5: Get Your Connection Details
+You need these to connect your app to Supabase:
+
+Go back to the main dashboard (click "Project Settings" on left menu)
+Look for "API" section or "URL and API Keys"
+Find and copy:
+
+The URL (looks like "https://something.supabase.co")
+The "anon" public key (a long string of letters and numbers)
+
+
+Save these somewhere safe - you'll need them for your app code
+
+STEP 6: Add Supabase to Your Android App
+
+Open your app in Android Studio
+Add these lines to your app's build.gradle file:
+implementation("io.github.jan-tennert.supabase:storage-kt:1.4.7")
+implementation("io.github.jan-tennert.supabase:gotrue-kt:1.4.7")
+
+Create a file called SupabaseClientHolder.kt with this code:
+kotlinobject SupabaseClientHolder {
+    val supabase = createSupabaseClient(
+        supabaseUrl = "YOUR_URL_FROM_STEP_5",
+        supabaseKey = "YOUR_KEY_FROM_STEP_5"
+    ){
+        install(Storage)
+    }
+}
+
+Replace the URL and key with the ones you saved in Step 5
+
+STEP 7: Create the Upload Function
+This is the code that sends files to Supabase:
+kotlinfun uploadFile(context: Context, uri: Uri) {
+    // Open the file
+    val inputStream = context.contentResolver.openInputStream(uri)
+    // Give it a unique name
+    val fileName = "file_${System.currentTimeMillis()}.pdf"
+    // Your bucket name from Step 3
+    val bucketName = "jobportalappstorage"
+
+    // Read the file
+    val byteArray = inputStream?.readBytes()
+
+    if (byteArray != null) {
+        // Do in background
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                // Send to Supabase
+                SupabaseClientHolder.supabase.storage.from(bucketName).upload(
+                    path = fileName,
+                    data = byteArray,
+                    upsert = true
+                )
+
+                // Show success message
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(context, "Upload successful!", Toast.LENGTH_SHORT).show()
+                }
+            } catch (e: Exception) {
+                // Show error message if it fails
+                withContext(Dispatchers.Main) {
+                    Toast.makeText(context, "Upload failed", Toast.LENGTH_SHORT).show()
+                }
+            } finally {
+                // Always close the file
+                inputStream?.close()
+            }
+        }
+    }
+}
+STEP 8: Test It!
+
+Run your app
+Try uploading a file
+Go back to Supabase dashboard → Storage → your bucket name
+You should see your file in the list!
+
+That's it! You've set up Supabase Storage from scratch and can now upload files from your Android app.

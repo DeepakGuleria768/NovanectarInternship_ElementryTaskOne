@@ -10,9 +10,10 @@ import com.example.prfofessionalportfolioapplication.Screens.HomeScreen
 import com.example.prfofessionalportfolioapplication.Screens.JobFormFillingScreen
 import com.example.prfofessionalportfolioapplication.Screens.ProjectPage
 import com.example.prfofessionalportfolioapplication.Screens.ResumePage
+import com.example.prfofessionalportfolioapplication.Screens.ResumeUploadingScreen.ResumeUploader
 import com.example.prfofessionalportfolioapplication.Screens.SecondScreen
 import com.example.prfofessionalportfolioapplication.Screens.jobsScreens.MainJobScreen
-import com.example.prfofessionalportfolioapplication.Screens.jobsScreens.NonTechnicalJobScreen
+import com.example.prfofessionalportfolioapplication.Screens.jobsScreens.NonTechnicalJobsScreen
 import com.example.prfofessionalportfolioapplication.Screens.jobsScreens.TechnicalJobsScreen
 
 @Composable
@@ -44,7 +45,7 @@ fun MyappNavGraph() {
             TechnicalJobsScreen(navController = navController)
         }
         composable("Nontechnical") {
-            NonTechnicalJobScreen(navController = navController)
+            NonTechnicalJobsScreen(navController = navController)
         }
         composable("Main_job_screen") {
             MainJobScreen(navController = navController)
@@ -52,6 +53,8 @@ fun MyappNavGraph() {
         composable("from_filling") {
             JobFormFillingScreen(navController = navController)
         }
-
+        composable("upload_resume") {
+            ResumeUploader(navController = navController)
+        }
     }
 }

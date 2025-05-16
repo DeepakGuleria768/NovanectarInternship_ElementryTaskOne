@@ -219,7 +219,7 @@ fun SecondScreen(
                 modifier = Modifier
                     .size(180.dp)
                 ,
-                onClick = { navController.navigate("") }) {
+                onClick = { navController.navigate("upload_resume") }) {
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
