@@ -10,4 +10,4 @@
 <p>8. Supabase : for storage</p>
 
 
-<h1>Link to the demo of the application :</h1>https://drive.google.com/file/d/18wFIbiVrw1MqmiBEh2QwbwFTM7Q4IYSv/view?usp=sharing
+<h1>Link to the demo of the application :</h1>https://drive.google.com/file/d/1EZkynmOgshQSI7rNX5KmK2fmSB6ta_yl/view?usp=drivesdk
